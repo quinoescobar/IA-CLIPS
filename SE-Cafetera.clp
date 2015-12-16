@@ -207,6 +207,7 @@
 (deffunction imprimir (?drink)
 	(printout t ------------------------------------------------ crlf)
 	(printout t "Bebida: " ?drink crlf)
+	(printout t "Precio: " (send ?drink get-Precio) crlf)
 	(printout t "Cantidad: " (send ?drink get-Cantidad) crlf)
 	(printout t "Calorias: " (send ?drink get-Calorias) crlf)
 	(printout t "Tamanho: " (send ?drink get-Tamanho) crlf)
@@ -300,7 +301,7 @@
     (and
       (<= ?drink:Precio (send [Usuario] get-Precio))
       (>= ?drink:Tamanho (- (send [Usuario] get-Tamanho) 2))
-			(= ?drink:Calorias (send [Usuario] get-Calorias))
+			(<= ?drink:Calorias (send [Usuario] get-Calorias))
       (<> ?drink:Personal (send [Usuario] get-Personal))
     )
   (imprimir ?drink)
