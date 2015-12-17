@@ -300,7 +300,7 @@
   (do-for-all-instances ((?drink Bebida))
     (and
       (<= ?drink:Precio (send [Usuario] get-Precio))
-      (>= ?drink:Tamanho (- (send [Usuario] get-Tamanho) 2))
+      (>= ?drink:Tamanho (send [Usuario] get-Tamanho))
 			(<= ?drink:Calorias (send [Usuario] get-Calorias))
       (<> ?drink:Personal (send [Usuario] get-Personal))
     )
